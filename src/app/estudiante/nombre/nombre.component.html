@@ -1,0 +1,20 @@
+<div>
+    <h1>Lista de ESTUDIANTES</h1>
+    <button type="button">Create new product</button>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nombre</th>
+    
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let e of estudiante">
+                <td>{{e.id}}</td>
+                <td>{{e.nombre}}</td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
