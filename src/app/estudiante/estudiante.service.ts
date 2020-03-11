@@ -37,9 +37,8 @@ export class EstudianteService {
     console.log(id)
     return this.httpClient.delete<Estudiante>(this.apiServer + 'estudiante/'+id,this.httpOptions)
     .pipe(
-      catchError(this.errorHandler)
-      
-    ).subscribe(()=>console.log("Estudiante Eliminado"))   
+      catchError(this.errorHandler) 
+    ).subscribe(( )=>console.log("Estudiante Eliminado"))
   }
 
   errorHandler(error) {

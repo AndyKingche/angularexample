@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { EstudianteModule } from './estudiante/estudiante.module';
+import {MenubarComponent} from './menubar/menubar.component';
 
 @Component({
   selector: 'app-root',
