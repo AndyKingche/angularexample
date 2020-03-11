@@ -1,0 +1,12 @@
+<div>
+    <h1>Create Product</h1>
+    <form [formGroup]="estudianteForm" (ngSubmit)="submitForm()" novalidate>
+        <div class="form-group">
+            <label>Nombre</label>
+            <input type="text" formControlName="nombre" class="form-control" maxlength="20">
+        </div>
+        <button type="submit"  >Submit</button>
+    </form>
+    <a [routerLink]="['/estudiante/nombre/']" >Regresar</a>
+
+</div>

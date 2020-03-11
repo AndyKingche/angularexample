@@ -27,11 +27,20 @@ export class EstudianteService {
   }
   //crear 
   create(estudiante): Observable<Estudiante> {
-    return this.httpClient.post<Estudiante>(this.apiServer + 'estudiante', JSON.stringify(estudiante), this.httpOptions)
+    return this.httpClient.post<Estudiante>(this.apiServer + 'estudiante/', JSON.stringify(estudiante), this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )
-  }  
+  }
+  //borrar 
+  delete(id:number){
+    console.log(id)
+    return this.httpClient.delete<Estudiante>(this.apiServer + 'estudiante/'+id,this.httpOptions)
+    .pipe(
+      catchError(this.errorHandler)
+      
+    ).subscribe(()=>console.log("Estudiante Eliminado"))   
+  }
 
   errorHandler(error) {
     let errorMessage = '';

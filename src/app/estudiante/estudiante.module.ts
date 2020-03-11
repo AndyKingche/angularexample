@@ -3,16 +3,17 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule, HttpClient} from '@angular/common/http';
 import { EstudianteRoutingModule } from './estudiante-routing.module';
 import { NombreComponent } from './nombre/nombre.component';
-import { FormsModule } from '@angular/forms';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CreateComponent } from './create/create.component';
 
 @NgModule({
-  declarations: [NombreComponent],
+  declarations: [NombreComponent, CreateComponent],
   imports: [
     CommonModule,
     EstudianteRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     HttpClientModule,
@@ -21,4 +22,5 @@ import { FormsModule } from '@angular/forms';
 })
 export class EstudianteModule { 
   @ViewChild(NombreComponent) nombre: NombreComponent;
+  @ViewChild(CreateComponent) crear: CreateComponent;
 }

@@ -1,6 +1,6 @@
 <div>
     <h1>Lista de ESTUDIANTES</h1>
-    <button type="button">Create new product</button>
+    <button type="button" [routerLink]="['/estudiante/crear/']">Crear nuevo Producto</button>
     <table>
         <thead>
             <tr>
@@ -13,6 +13,9 @@
             <tr *ngFor="let e of estudiante">
                 <td>{{e.id}}</td>
                 <td>{{e.nombre}}</td>
+                <td>
+                    <button type="button" (click)='this.estudianteService.delete(e.id)'>Eliminar</button>
+                </td>
 
             </tr>
         </tbody>
