@@ -17,11 +17,11 @@ export class EstudianteService  {
 
   private apiServer = SERVER_API_URL;
   
-  httpOptions = {
+/*   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
-  }
+  } */
   constructor(private httpClient: HttpClient,private route : Router) { }
 //listar
   getAll(): Observable<Estudiante[]> {
