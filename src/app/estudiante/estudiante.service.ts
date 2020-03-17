@@ -7,6 +7,7 @@ import { catchError } from 'rxjs/operators';
 import { Estudiante } from './estudiante';
 import { Router } from '@angular/router';
 import { SERVER_API_URL } from '../app.constants';
+import { createRequestOption } from './request-util';
 
 type EntityResponseType = HttpResponse<Estudiante>;
 type EntityArrayResponseType = HttpResponse<Estudiante[]>;
@@ -17,13 +18,13 @@ export class EstudianteService  {
 
   private apiServer = SERVER_API_URL;
   
-/*   httpOptions = {
+  httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
-  } */
+  }
   constructor(private httpClient: HttpClient,private route : Router) { }
-//listar
+//listar /* Estudiante[] */
   getAll(): Observable<Estudiante[]> {
     return this.httpClient.get<Estudiante[]>(this.apiServer + 'estudiante')
     .pipe(
@@ -38,17 +39,17 @@ export class EstudianteService  {
       )
     
   }
-  //crear 
-  create(estudiante:Estudiante): Observable<Estudiante> {
-    return this.httpClient.post<Estudiante>(this.apiServer + 'estudiante/', JSON.stringify(estudiante), this.httpOptions)
+  //crear Estudiante
+  create(estudiante:Estudiante): Observable<EntityResponseType> {
+    return this.httpClient.post<Estudiante>(this.apiServer + 'estudiante/', estudiante, {observe:'response'})
     .pipe(
       catchError(this.errorHandler)
     )
   }
   //actualizar
-  update(id:number, estudiante:Estudiante): Observable<Estudiante> {
+  update(id:number, estudiante:Estudiante): Observable<EntityResponseType>{
     console.log("holaa",id);
-    return this.httpClient.put<Estudiante>(this.apiServer + 'estudiante/' + id, JSON.stringify(estudiante), this.httpOptions)
+    return this.httpClient.put<Estudiante>(this.apiServer + 'estudiante/' + id,estudiante /* JSON.stringify(estudiante) */, {observe:'response'}/* this.httpOptions */)
     .pipe(
       catchError(this.errorHandler)
     )
@@ -61,7 +62,10 @@ export class EstudianteService  {
       catchError(this.errorHandler) 
     )
   }
-
+query(req?: any): Observable<EntityArrayResponseType> {
+    const options = createRequestOption(req);
+    return this.httpClient.get<Estudiante[]>(this.apiServer+'estudiante', { params: options, observe: 'response' });
+  }
   errorHandler(error) {
     let errorMessage = '';
     if(error.error instanceof ErrorEvent) {
