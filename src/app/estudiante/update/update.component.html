@@ -1,6 +1,6 @@
 <div>
     <div class="text-center">
-        <h1>Crear Estudiante</h1>
+        <h1>Actualizar Estudiante</h1>
     </div>
    
     <form [formGroup]="estudianteForm" (ngSubmit)="submitForm()" novalidate>
@@ -13,11 +13,10 @@
             <input  type="text" formControlName="cedula" class="form-control" placeholder="Inregese Cedula">
             <label for="edad">Edad</label>
             <input  type="text" formControlName="edad" class="form-control" placeholder="Inregese Edad">
-            
-        </div>
+         </div>
         <button type="submit" class="btn btn-primary" >Submit</button>
     </form>
     <br>
     <a [routerLink]="['/estudiante/nombre/']" type="button" class="btn btn-dark">Regresar</a>
-
 </div>
+    

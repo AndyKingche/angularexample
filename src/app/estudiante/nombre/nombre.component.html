@@ -3,24 +3,36 @@
         <h1>Lista de ESTUDIANTES</h1>
     </div>
  
-    <button type="button" [routerLink]="['/estudiante/crear/']">Crear nuevo Estudiante</button>
-    <table>
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Nombre</th>
+    <button type="button"  class="btn btn-success" [routerLink]="['/estudiante/crear/']">Crear nuevo Estudiante</button>
+    <div class="table-responsive-sm">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Edad</th>
+                    <th scope="col">Cedula</th>
+                    <th scope="col">Opciones</th>
+        
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let e of estudiante">
+                    <td>{{e.id}}</td>
+                    <td>{{e.nombre}}</td>
+                    <td>{{e.apellido}}</td>
+                    <td>{{e.edad}}</td>
+                    <td>{{e.cedula}}</td>
+                    <td>
+                        <button type="button" class="btn btn-danger" (click)='this.eliminar(e.id)'>Eliminar</button>
+                        |
+                        <button type="button" class="btn btn-primary" routerLink="/estudiante/actualizar/{{e.id}}">Actualizar</button>
+                    </td>
     
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let e of estudiante">
-                <td>{{e.id}}</td>
-                <td>{{e.nombre}}</td>
-                <td>
-                    <button type="button" (click)='this.estudianteService.delete(e.id)'>Eliminar</button>
-                </td>
-
-            </tr>
-        </tbody>
-    </table>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
 </div>

@@ -8,5 +8,5 @@ import {MenubarComponent} from './menubar/menubar.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ejemplo';
+  title = 'Estudiantes';
 }
