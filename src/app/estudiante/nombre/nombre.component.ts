@@ -22,6 +22,7 @@ export class NombreComponent implements OnInit {
       console.log(data);
       this.estudiante = data;
     });
+
   }
   eliminar(id:number){
 
@@ -29,8 +30,6 @@ export class NombreComponent implements OnInit {
       this.ngOnInit();
     console.log("eliminado",res)})
   }
-  
-
 }
 
 

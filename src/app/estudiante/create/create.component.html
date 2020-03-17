@@ -1,8 +1,13 @@
+<ng-template #content let-modal>
 <div>
-    <div class="text-center">
-        <h1>Crear Estudiante</h1>
+    <div class="modal-header">
+        <h1 class="modal-title" id="modal-basic-title">Crear Estudiante</h1>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
-   
+    
+    <div class="modal-body">
     <form [formGroup]="estudianteForm" (ngSubmit)="submitForm()" novalidate>
         <div class="form-group">
             <label for="nombre">Nombre</label>
@@ -17,7 +22,9 @@
         </div>
         <button type="submit" class="btn btn-primary" >Submit</button>
     </form>
+    </div>
     <br>
     <a [routerLink]="['/estudiante/nombre/']" type="button" class="btn btn-dark">Regresar</a>
 
 </div>
+</ng-template>

@@ -4,6 +4,7 @@ import {NombreComponent} from './nombre/nombre.component';
 import {CreateComponent} from './create/create.component';
 import {UpdateComponent} from './update/update.component';
 
+
 const routes: Routes = [
   {path:'estudiante',redirectTo:'estudiante/nombre',pathMatch:'full'},
   {path:'estudiante/nombre',component:NombreComponent},
@@ -17,4 +18,7 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class EstudianteRoutingModule { }
+export class EstudianteRoutingModule  { 
+
+
+}

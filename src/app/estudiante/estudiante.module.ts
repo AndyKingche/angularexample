@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateComponent } from './create/create.component';
 import { UpdateComponent } from './update/update.component';
 
+
 @NgModule({
   declarations: [NombreComponent, CreateComponent, UpdateComponent],
   imports: [

@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { SERVER_API_URL } from '../app.constants';
 import { createRequestOption } from './request-util';
 
+
 type EntityResponseType = HttpResponse<Estudiante>;
 type EntityArrayResponseType = HttpResponse<Estudiante[]>;
 @Injectable({
