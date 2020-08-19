@@ -1,12 +1,12 @@
-<ng-template #content let-modal>
-<div>
-    <div class="modal-header">
-        <h1 class="modal-title" id="modal-basic-title">Crear Estudiante</h1>
-        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+<div div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+        <h1 class="modal-title" id="exampleModalLabel">Crear Estudiante</h1>
+        <button type="button" [routerLink]="['/estudiante/nombre/']" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
-    </div>
-    
+             </div>
     <div class="modal-body">
     <form [formGroup]="estudianteForm" (ngSubmit)="submitForm()" novalidate>
         <div class="form-group">
@@ -17,14 +17,36 @@
             <label for="cedula">Cedula</label>
             <input  type="text" formControlName="cedula" class="form-control" placeholder="Inregese Cedula">
             <label for="edad">Edad</label>
-            <input  type="text" formControlName="edad" class="form-control" placeholder="Inregese Edad">
+            <input  type="text" formControlName="edad" class="form-control" placeholder="Inregese edad">
             
         </div>
         <button type="submit" class="btn btn-primary" >Submit</button>
     </form>
     </div>
     <br>
-    <a [routerLink]="['/estudiante/nombre/']" type="button" class="btn btn-dark">Regresar</a>
-
+       </div>
+    </div>
 </div>
-</ng-template>
+
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { NombreComponent } from '../nombre/nombre.component';
 import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import {Estudiante} from '../estudiante';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-create',
@@ -13,12 +13,10 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./create.component.css']
 })
 export class CreateComponent implements OnInit {
-  estudianteForm: FormGroup;
-  estudiante: Estudiante[];
-
+  estudianteForm: FormGroup;  
   constructor(public fb: FormBuilder,
     private router: Router,
-    public estudianteService: EstudianteService, private modalService: NgbModal) { }
+    public estudianteService: EstudianteService) { }
     closeResult: string;
   ngOnInit(): void {
     this.estudianteForm = this.fb.group({
@@ -27,9 +25,10 @@ export class CreateComponent implements OnInit {
       edad:0,
       cedula:['']
 
-    })
-    
-
+    });
+ 
+   
+  
   }
   submitForm() {
     this.estudianteService.create(this.estudianteForm.value).subscribe(res => {
@@ -45,23 +44,6 @@ export class CreateComponent implements OnInit {
     })
   }
 
-  open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
-  }
-
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return  `with: ${reason}`;
-    }
-  }
 }
 
 
